@@ -1,0 +1,40 @@
+package com.java;
+
+import java.util.*;
+
+public class Billing {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		double billAmount = sc.nextDouble();
+		String membership = sc.next();
+		boolean isHappyHour = sc.nextBoolean();
+		double discount = 0;
+		
+		if (membership.equalsIgnoreCase("VIP")) {
+			discount = 0.15;
+			if (isHappyHour)
+				discount += 0.10;
+		}
+
+		else if (membership.equalsIgnoreCase("regular")) {
+			if (billAmount >20) {
+				discount = 0.10;
+				if (isHappyHour)
+					discount += 0.05;
+			}
+		}
+	
+			else if(membership.equalsIgnoreCase("guest")){
+				discount=0.0;
+				if(isHappyHour && billAmount>50) 
+					billAmount -=5;
+					
+				
+			
+			}
+		double actualBill=(billAmount - billAmount*discount);
+		System.out.print(actualBill);
+
+		}
+}
+
