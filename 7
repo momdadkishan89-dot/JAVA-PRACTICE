@@ -1,0 +1,48 @@
+package com.java;
+import java.util.*;
+public class Order {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner (System.in);
+		String destination=sc.next();
+         double weight=sc.nextDouble();
+         boolean delivery=sc.nextBoolean();
+         double order=sc.nextDouble();
+         double baseFee=0;
+         if(destination.equalsIgnoreCase("Domestic")) {
+        	 if (order>=100) {
+        		 baseFee=0;
+        		 } 
+        	 if(order<100) {	 
+        		 baseFee=5.0 ;     		 
+        	 }
+        		  if(weight<=2) {		  
+        			 baseFee +=5.00 ;     			  
+        		  }
+        		  if (weight>2) {      			  
+        			  baseFee=baseFee +((weight-2)*2) ;
+        	 }
+          if (delivery) {
+        	  baseFee=baseFee+8.00;
+         }
+         }
+          if (destination.equalsIgnoreCase("International")) {
+        	  if(weight<=5) {
+        		  baseFee +=25.0;
+        		  if(delivery) {
+        			  baseFee += 20;
+        		  }
+        	  }
+        	  if(weight>5) {
+        		  baseFee=baseFee +(weight-5)*5;
+        		  if(delivery) {
+        			  baseFee +=20;
+        		  }
+        	  }
+        	  }
+          
+         
+          System.out.println("BaseFee ="+ baseFee);
+	
+	}
+	}
+
